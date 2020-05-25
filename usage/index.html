@@ -760,22 +760,63 @@ registrados y aquellos con el rol de administrador.</p>
 <h2 id="inicio">Inicio<a class="headerlink" href="#inicio" title="Permanent link">&para;</a></h2>
 <p>En la página de inicio se listan diferentes componentes que forman parte de
 la plataforma. Desde aquí se puede acceder a los mapas del módulo de
-Observación Terrestre, como el mapa de Cobertura Verde o el mapa de Cobertura
-de Loma Perdida, y por otro lado, al Mapa y el Dashboard del módulo de
+Observación Terrestre, como el mapa de <strong>Cobertura Verde</strong> o el mapa de <strong>Cobertura
+de Loma Perdida</strong>, y por otro lado, al Mapa y el <strong>Dashboard</strong> del módulo de
 Estaciones Meteorológicas.</p>
 <p><img alt="Captura de inicio" src="../img/home.png" /></p>
 <h2 id="observacion-terrestre">Observación terrestre<a class="headerlink" href="#observacion-terrestre" title="Permanent link">&para;</a></h2>
 <h3 id="cobertura-verde">Cobertura Verde<a class="headerlink" href="#cobertura-verde" title="Permanent link">&para;</a></h3>
-<p><img alt="" src="../img/vi1.png" />
-<img alt="" src="../img/vi2.png" />
-<img alt="" src="../img/vi3.png" />
-<img alt="" src="../img/vi4.png" />
-<img alt="" src="../img/vi5.png" />
-<img alt="" src="../img/vi6.png" />
-<img alt="" src="../img/vi7.png" /></p>
+<p>El mapa de cobertura verde presenta la capa de cobertura de vegetación del
+ecosistema de las Lomas, basada en el producto de MODIS de índices de
+vegetación (MOD13Q1).</p>
+<p><img alt="" src="../img/vi1.png" /></p>
+<p>En la esquina superior izquierda se encuentra el control de Filtro, que
+permite filtrar los resultados de la serie de tiempo para un ámbito y un
+rango de fechas específico:</p>
+<p><img alt="" src="../img/vi2.png" /></p>
+<p>Desde el selector de Tipo de Ámbito se puede seleccionar un tipo de ámbito.
+Al seleccionar uno, en el mapa se actualizará la capa de ámbitos del tipo
+seleccionado.</p>
+<p><img alt="" src="../img/vi4.png" /></p>
+<p>También se puede ajustar la fecha de comienzo y fin de la serie de tiempo.
+Por defecto, se toma la primer fecha y última fecha con datos cargados en la
+base de datos.</p>
+<p><img alt="" src="../img/vi5.png" /></p>
+<p>Por defecto se visualiza la capa NDVI, pero también es posible visualizar en
+simultaneo una máscara de vegetación, resultado de la umbralización de la
+capa NDVI, (<em>Vegetation mask</em>) y una máscara de nubes (<em>Cloud Mask</em>),
+extraída del mismo producto de MODIS. Estas capas se pueden activar o
+desactivar haciendo clic en el ícono de Capas en la esquina inferior
+izquierda, y en cada casillero.</p>
+<p><img alt="" src="../img/vi6.png" /></p>
+<p>También es posible ajustar la opacidad de cada capa ajustando el control
+deslizante al lado del nombre de la capa.</p>
+<p>Debajo del ícono de Capas, se encuentra el control de Selección de Períodos,
+que permite seleccionar una fecha en particular, para visualizar las capas de
+ese período en el mapa.</p>
+<p><img alt="" src="../img/vi7.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Esta selección de fecha sólo afecta a las capas visualizadas en el mapa,
+no a la serie de tiempo. Para ajustar las fechas de la serie de tiempo,
+debe hacerlo desde el control de Filtro.</p>
+</div>
 <h3 id="cobertura-de-loma-perdida">Cobertura de Loma Perdida<a class="headerlink" href="#cobertura-de-loma-perdida" title="Permanent link">&para;</a></h3>
+<p>La vista de cobertura de Loma Perdida funciona de manera similar al mapa de
+Cobertura Verde.  Las capas disponibles en este caso son:</p>
+<ul>
+<li><em>Loss mask</em>: Máscara de loma perdida. Resultado del producto de clasificación
+  de cobertura de loma perdida.</li>
+<li><em>Sentinel-1</em>: Imagen en color falso del mosaico de Sentinel-1 para el período
+  actual. Las bandas utilizadas fueron VV, VH y la proporción VV/VH como
+  rojo, verde y azul respectivamente.</li>
+<li><em>Sentinel-2</em>: Imagen en color verdadero del mosaico de Sentinel-2 para el
+  período actual.</li>
+</ul>
 <p><img alt="" src="../img/lomas1.png" /></p>
 <h3 id="deteccion-de-cambios">Detección de Cambios<a class="headerlink" href="#deteccion-de-cambios" title="Permanent link">&para;</a></h3>
+<p>En esta vista se visualiza el producto del modelo de detección de objetos
+para escenas del satélite PeruSat-1.</p>
 <p><img alt="" src="../img/objects1.png" /></p>
 <h2 id="estaciones-meteorologicas">Estaciones Meteorológicas<a class="headerlink" href="#estaciones-meteorologicas" title="Permanent link">&para;</a></h2>
 <h3 id="mapa">Mapa<a class="headerlink" href="#mapa" title="Permanent link">&para;</a></h3>

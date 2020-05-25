@@ -43,6 +43,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -316,12 +318,73 @@
     Reglas
   </a>
   
+    <nav class="md-nav" aria-label="Reglas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reglas-de-parametro" class="md-nav__link">
+    Reglas de Parámetro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-de-tipo-de-ambito" class="md-nav__link">
+    Reglas de Tipo de Ámbito
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-de-ambito" class="md-nav__link">
+    Reglas de Ámbito
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
   <a href="#alertas" class="md-nav__link">
     Alertas
   </a>
+  
+    <nav class="md-nav" aria-label="Alertas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-verificacion-de-regla" class="md-nav__link">
+    Diagrama de verificación de regla
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-para-reglas-de-parametro" class="md-nav__link">
+    Diagrama para reglas de parámetro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-para-reglas-de-tipo-de-ambito" class="md-nav__link">
+    Diagrama para reglas de tipo de ámbito
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-para-reglas-de-ambito" class="md-nav__link">
+    Diagrama para reglas de ámbito
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -529,12 +592,73 @@
     Reglas
   </a>
   
+    <nav class="md-nav" aria-label="Reglas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reglas-de-parametro" class="md-nav__link">
+    Reglas de Parámetro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-de-tipo-de-ambito" class="md-nav__link">
+    Reglas de Tipo de Ámbito
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-de-ambito" class="md-nav__link">
+    Reglas de Ámbito
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
   <a href="#alertas" class="md-nav__link">
     Alertas
   </a>
+  
+    <nav class="md-nav" aria-label="Alertas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-verificacion-de-regla" class="md-nav__link">
+    Diagrama de verificación de regla
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-para-reglas-de-parametro" class="md-nav__link">
+    Diagrama para reglas de parámetro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-para-reglas-de-tipo-de-ambito" class="md-nav__link">
+    Diagrama para reglas de tipo de ámbito
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-para-reglas-de-ambito" class="md-nav__link">
+    Diagrama para reglas de ámbito
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -666,9 +790,59 @@ Estaciones Meteorológicas.</p>
 <img alt="" src="../img/stations-data1.png" /></p>
 <h2 id="usuarios">Usuarios<a class="headerlink" href="#usuarios" title="Permanent link">&para;</a></h2>
 <h3 id="reglas">Reglas<a class="headerlink" href="#reglas" title="Permanent link">&para;</a></h3>
+<h4 id="reglas-de-parametro">Reglas de Parámetro<a class="headerlink" href="#reglas-de-parametro" title="Permanent link">&para;</a></h4>
+<p><img alt="" src="../img/admin-parameter-rule1.png" />
+<img alt="" src="../img/admin-parameter-rule2.png" /></p>
+<h4 id="reglas-de-tipo-de-ambito">Reglas de Tipo de Ámbito<a class="headerlink" href="#reglas-de-tipo-de-ambito" title="Permanent link">&para;</a></h4>
+<p><img alt="" src="../img/admin-scope-type-rule1.png" />
+<img alt="" src="../img/admin-scope-type-rule2.png" /></p>
+<h4 id="reglas-de-ambito">Reglas de Ámbito<a class="headerlink" href="#reglas-de-ambito" title="Permanent link">&para;</a></h4>
+<p><img alt="" src="../img/admin-scope-rule1.png" />
+<img alt="" src="../img/admin-scope-rule2.png" /></p>
 <h3 id="alertas">Alertas<a class="headerlink" href="#alertas" title="Permanent link">&para;</a></h3>
+<h4 id="diagrama-de-verificacion-de-regla">Diagrama de verificación de regla<a class="headerlink" href="#diagrama-de-verificacion-de-regla" title="Permanent link">&para;</a></h4>
+<div class="mermaid">graph TB;
+    inicio([Inicio])--&gt;esAbs{{es absoluto?}};
+    esAbs-- sí --&gt;valAbs[Toma como valor &lt;br /&gt;la medicion actual];
+    esAbs-- no --&gt;valRel[Toma como valor &lt;br /&gt;la diferencia &lt;br /&gt;entre medicion actual y &lt;br /&gt;medicion anterior];
+    valAbs--&gt;esValMenorMin{{es valor menor &lt;br /&gt;al mínimo valido?}};
+    valRel--&gt;esValMenorMin;
+    esValMenorMin-- sí --&gt;crear[Crear alerta];
+    esValMenorMin-- no --&gt;esValMayorMax[es valor mayor &lt;br /&gt;al máximo válido?];
+    esValMayorMax-- sí --&gt;crear;
+    esValMayorMax-- no --&gt;fin([Fin]);
+    crear--&gt;debeNotificar{{debe notificar por mail?}};
+    debeNotificar-- sí --&gt;notificar[Enviar notificación por mail];
+    debeNotificar-- no --&gt;fin;
+    notificar--&gt;fin;</div>
+
+<h4 id="diagrama-para-reglas-de-parametro">Diagrama para reglas de parámetro<a class="headerlink" href="#diagrama-para-reglas-de-parametro" title="Permanent link">&para;</a></h4>
+<div class="mermaid">graph LR;
+    inicio([Inicio])--&gt;todas{{en todas las estaciones?}};
+    todas-- sí --&gt;fin([Fin]);
+    todas-- no --&gt;filtrar[Filtra por estación &lt;br /&gt;definida en regla];
+    filtrar--&gt;fin;</div>
+
+<h4 id="diagrama-para-reglas-de-tipo-de-ambito">Diagrama para reglas de tipo de ámbito<a class="headerlink" href="#diagrama-para-reglas-de-tipo-de-ambito" title="Permanent link">&para;</a></h4>
+<div class="mermaid">graph LR;
+    inicio([Inicio])--&gt;todos{{en todos los tipos de ámbito?}};
+    todos-- sí --&gt;fin([Fin]);
+    todos-- no --&gt;filtrar[Filtra por tipo de ámbito &lt;br /&gt;definido en regla];
+    filtrar--&gt;fin;</div>
+
+<h4 id="diagrama-para-reglas-de-ambito">Diagrama para reglas de ámbito<a class="headerlink" href="#diagrama-para-reglas-de-ambito" title="Permanent link">&para;</a></h4>
+<div class="mermaid">graph LR;
+    inicio([Inicio])--&gt;todos{{en todos los ámbitos del tipo?}};
+    todos-- sí --&gt;fin([Fin]);
+    todos-- no --&gt;filtrar[Filtra por ámbito &lt;br /&gt;definido en regla];
+    filtrar--&gt;fin;</div>
+
+<p><img alt="" src="../img/admin-alerts1.png" /></p>
 <h3 id="imagenes">Imágenes<a class="headerlink" href="#imagenes" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="../img/admin-images1.png" />
+<img alt="" src="../img/admin-images2.png" /></p>
 <h3 id="perfil">Perfil<a class="headerlink" href="#perfil" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="../img/admin-profile1.png" /></p>
 <h2 id="administradores">Administradores<a class="headerlink" href="#administradores" title="Permanent link">&para;</a></h2>
 <h3 id="panel-de-administracion">Panel de administración<a class="headerlink" href="#panel-de-administracion" title="Permanent link">&para;</a></h3>
 <p><img alt="" src="../img/backend-admin1.png" /></p>
@@ -762,6 +936,8 @@ Estaciones Meteorológicas.</p>
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       
     
   </body>

@@ -678,7 +678,7 @@ dependencias.</p>
 <div class="admonition note">
 <p class="admonition-title">Sólo para Ubuntu 18.04</p>
 <p>Las instrucciones están pensadas para Ubuntu 18.04. Puede verificar la
-<a href="https://letsencrypt.org/">guía de instalación de TimescaleDB</a> si está utilizando otro sistema
+<a href="https://docs.timescale.com/latest/getting-started/installation">guía de instalación de TimescaleDB</a> si está utilizando otro sistema
 operativo.</p>
 </div>
 <p>Agregue el siguiente repositorio de PostgreSQL para obtener la últimas
@@ -746,7 +746,7 @@ frontend (sitio web de la plataforma).</p>
 
 <p>Para instalar las dependencias correctas del backend, debe instalar el
 manejador de paquetes <a href="https://pipenv.pypa.io/en/latest/">Pipenv</a>.</p>
-<div class="highlight"><pre><span></span><code>pip install --user -U pipenv
+<div class="highlight"><pre><span></span><code>sudo -H pip3 install -U pipenv
 </code></pre></div>
 
 <p>Luego, ejecute lo siguiente para instalar todas las dependencias necesarias.
@@ -783,14 +783,14 @@ psql satlomas -c <span class="s2">&quot;CREATE EXTENSION IF NOT EXISTS postgis C
 
 <h4 id="registracion-en-copernicus-open-access-hub">Registración en Copernicus Open Access Hub<a class="headerlink" href="#registracion-en-copernicus-open-access-hub" title="Permanent link">&para;</a></h4>
 <p>Para que la plataforma pueda descargar los productos del satélite Sentinel-1
-y Sentinel-2 de la ESA, es necesario estar registrado en <a href="https://letsencrypt.org/">Copernicus Open
+y Sentinel-2 de la ESA, es necesario estar registrado en <a href="https://scihub.copernicus.eu/">Copernicus Open
 Access Hub</a>.</p>
-<p>Para registrase, ingrese <a href="https://certbot.eff.org/lets-encrypt/ubuntubionic-nginx">aquí</a>. Tome nota del <strong>nombre de usuario</strong> y
+<p>Para registrase, ingrese <a href="https://scihub.copernicus.eu/dhus/#/self-registration">aquí</a>. Tome nota del <strong>nombre de usuario</strong> y
 <strong>contraseña</strong> dado que será necesario al momento de configurar el backend.</p>
 <h4 id="registracion-en-nasa-earthdata">Registración en NASA EarthData<a class="headerlink" href="#registracion-en-nasa-earthdata" title="Permanent link">&para;</a></h4>
 <p>Para descargar los productos de MODIS VI, es necesario estar registrado en
-<a href="https://certbot.eff.org/lets-encrypt/ubuntubionic-nginx">NASA EarthData</a>.</p>
-<p>Puede registrarse ingresando <a href="https://certbot.eff.org/lets-encrypt/ubuntubionic-nginx">aquí</a>. Tome nota del <strong>nombre de usuario</strong> y
+<a href="https://urs.earthdata.nasa.gov/">NASA EarthData</a>.</p>
+<p>Puede registrarse ingresando <a href="https://urs.earthdata.nasa.gov/users/new">aquí</a>. Tome nota del <strong>nombre de usuario</strong> y
 <strong>contraseña</strong> dado que será necesario al momento de configurar el backend.</p>
 <h4 id="variables-de-entorno">Variables de entorno<a class="headerlink" href="#variables-de-entorno" title="Permanent link">&para;</a></h4>
 <p>Copie <code>env.sample</code> y guarde un archivo nuevo llamada <code>.env</code>.</p>
@@ -811,7 +811,7 @@ configuradas para el funcionamiento de la plataforma.</p>
 <tbody>
 <tr>
 <td><code>SECRET_KEY</code></td>
-<td>String único de caracteres alfanuméricos, utilizado para firmas criptográficas. Puede generar uno <a href="https://letsencrypt.org/">aquí</a>.</td>
+<td>String único de caracteres alfanuméricos, utilizado para firmas criptográficas. Puede generar uno <a href="https://djecrety.ir/">aquí</a>.</td>
 </tr>
 <tr>
 <td><code>ALLOWED_HOSTS</code></td>
@@ -827,11 +827,11 @@ configuradas para el funcionamiento de la plataforma.</p>
 </tr>
 <tr>
 <td><code>SCIHUB_USER</code></td>
-<td>Usuario de <a href="https://certbot.eff.org/lets-encrypt/ubuntubionic-nginx">SciHub</a></td>
+<td>Usuario de <a href="#registracion-en-copernicus-open-access-hub">SciHub</a></td>
 </tr>
 <tr>
 <td><code>SCIHUB_PASS</code></td>
-<td>Contraseña de <a href="https://certbot.eff.org/lets-encrypt/ubuntubionic-nginx">SciHub</a></td>
+<td>Contraseña de <a href="#registracion-en-copernicus-open-access-hub">SciHub</a></td>
 </tr>
 <tr>
 <td><code>MODIS_USER</code></td>
@@ -881,7 +881,7 @@ web:</p>
 <h2 id="configuracion-de-servicios">Configuración de servicios<a class="headerlink" href="#configuracion-de-servicios" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">Más información</p>
-<p>Esta sección de la documentación está basada en la guía <a href="https://letsencrypt.org/">How To Set Up
+<p>Esta sección de la documentación está basada en la guía <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-18-04">How To Set Up
 Django with Postgres, Nginx, and Gunicorn on Ubuntu 18.04</a>, de Digital
 Ocean. Para más información para depurar los servicios, puede
 consultarla.</p>

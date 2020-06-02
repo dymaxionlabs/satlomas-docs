@@ -850,7 +850,12 @@ de la base de datos.</p>
 ./manage.py migrate   <span class="c1"># Correr las migraciones</span>
 </code></pre></div>
 
-<p>Luego, cree un <em>superusuario</em> para SatLomas. Este será el primer usuario
+<p>Antes de continuar, debería generar los archivos estáticos, necesarios para el
+panel de administrador:</p>
+<div class="highlight"><pre><span></span><code>./manage.py collectstatic
+</code></pre></div>
+
+<p>Finalmente, cree un <em>superusuario</em> para SatLomas. Este será el primer usuario
 administrador, con el que podrá registrar nuevos administradores o usuarios.</p>
 <div class="highlight"><pre><span></span><code>./manage.py createsuperuser
 </code></pre></div>
@@ -888,7 +893,7 @@ consultarla.</p>
 </div>
 <h3 id="backend_1">Backend<a class="headerlink" href="#backend_1" title="Permanent link">&para;</a></h3>
 <p>Comience creando un nuevo archivo para el socket del servicio del backend:</p>
-<div class="highlight"><pre><span></span><code>sudo nano /etc/systemd/system/gunicorn.service
+<div class="highlight"><pre><span></span><code>sudo nano /etc/systemd/system/gunicorn.socket
 </code></pre></div>
 
 <p>Copie lo siguiente dentro del archivo:</p>
@@ -1007,7 +1012,7 @@ y dos registros A para los subdominios:</p>
 
   location / {
     include proxy_params;
-    proxy_pass http://unix:/home/ubuntu/satlomas-back/satlomas.sock;
+    proxy_pass http://unix:/run/gunicorn.sock;
 
     proxy_connect_timeout       600;
     proxy_send_timeout          600;

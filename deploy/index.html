@@ -694,7 +694,7 @@ sudo apt-get update
 hacerlo automaticamente descargará e instalará también la versión correcta
 del servidor de PostgreSQL.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Add TimescaleDBs PPA</span>
-sudo add-apt-repository ppa:timescale/timescaledb-ppa
+sudo add-apt-repository -y ppa:timescale/timescaledb-ppa
 sudo apt-get update
 
 <span class="c1"># Now install appropriate package for PG version</span>
@@ -707,7 +707,7 @@ optimizar la base de datos para TimescaleDB.</p>
 </code></pre></div>
 
 <p>Ahora, instale la extensión PostGIS 3 para esta versión de PostgreSQL.</p>
-<div class="highlight"><pre><span></span><code>sudo apt-get install postgresql-11-postgis-3
+<div class="highlight"><pre><span></span><code>sudo apt-get install -y postgresql-11-postgis-3
 </code></pre></div>
 
 <p>Finalmente, reinicie la instancia de PostgreSQL.</p>
@@ -716,7 +716,7 @@ optimizar la base de datos para TimescaleDB.</p>
 
 <h3 id="python-redis-gdal">Python, Redis, GDAL<a class="headerlink" href="#python-redis-gdal" title="Permanent link">&para;</a></h3>
 <p>Instale Python y otras dependencias como GDAL y el servidor de Redis.</p>
-<div class="highlight"><pre><span></span><code>sudo apt-get install <span class="se">\</span>
+<div class="highlight"><pre><span></span><code>sudo apt-get install -y <span class="se">\</span>
   build-essential <span class="se">\</span>
   git <span class="se">\</span>
   gdal-bin <span class="se">\</span>
@@ -935,7 +935,7 @@ ExecStart=/home/ubuntu/.local/share/virtualenvs/satlomas-back-XVGhZdP0/bin/gunic
           --timeout 600 \
           --workers 3 \
           --bind unix:/run/gunicorn.sock \
-          satlomas.wsgi:application
+          geolomas.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
@@ -1087,14 +1087,14 @@ acceder <a href="https://certbot.eff.org/lets-encrypt/ubuntubionic-nginx">aquí<
 <p>Deberá agregar el PPA de Certbot a la lista de repositorios.  Para esto,
 ejecute los siguientes comandos:</p>
 <div class="highlight"><pre><span></span><code>sudo apt-get update
-sudo apt-get install software-properties-common
-sudo add-apt-repository universe
-sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get install -y software-properties-common
+sudo add-apt-repository -y universe
+sudo add-apt-repository -y ppa:certbot/certbot
 sudo apt-get update
 </code></pre></div>
 
 <p>Ejecute este comando para instalar Certbot:</p>
-<div class="highlight"><pre><span></span><code>sudo apt-get install certbot python3-certbot-nginx
+<div class="highlight"><pre><span></span><code>sudo apt-get install -y certbot python3-certbot-nginx
 </code></pre></div>
 
 <p>Ahora ejecute este comando para obtener un certificado y hacer que Certbot

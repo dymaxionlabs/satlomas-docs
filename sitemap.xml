@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
-     <loc>https://dymaxionlabs.github.io/satlomas-docs/</loc>
+     <loc>https://undp.github.io/satlomas-doc/</loc>
      <lastmod>2021-03-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://dymaxionlabs.github.io/satlomas-docs/usage/</loc>
+     <loc>https://undp.github.io/satlomas-doc/usage/</loc>
      <lastmod>2021-03-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://dymaxionlabs.github.io/satlomas-docs/methodology/</loc>
+     <loc>https://undp.github.io/satlomas-doc/methodology/</loc>
      <lastmod>2021-03-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://dymaxionlabs.github.io/satlomas-docs/deploy/</loc>
+     <loc>https://undp.github.io/satlomas-doc/deploy/</loc>
      <lastmod>2021-03-11</lastmod>
      <changefreq>daily</changefreq>
     </url>

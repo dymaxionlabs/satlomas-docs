@@ -689,7 +689,6 @@ Ubuntu menores a 19.04).</p>
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc <span class="p">|</span> sudo apt-key add -
 sudo apt-get update
 </code></pre></div>
-
 <p>Agregue el repositorio de TimescaleDB y luego instale TimescaleDB, que al
 hacerlo automaticamente descargará e instalará también la versión correcta
 del servidor de PostgreSQL.</p>
@@ -700,20 +699,16 @@ sudo apt-get update
 <span class="c1"># Now install appropriate package for PG version</span>
 sudo apt install timescaledb-postgresql-11
 </code></pre></div>
-
 <p>Es recomendable que utilice la herramienta <code>timescaledb-tune</code> para ajustar y
 optimizar la base de datos para TimescaleDB.</p>
 <div class="highlight"><pre><span></span><code>sudo timescaledb-tune
 </code></pre></div>
-
 <p>Ahora, instale la extensión PostGIS 3 para esta versión de PostgreSQL.</p>
 <div class="highlight"><pre><span></span><code>sudo apt-get install -y postgresql-11-postgis-3
 </code></pre></div>
-
 <p>Finalmente, reinicie la instancia de PostgreSQL.</p>
 <div class="highlight"><pre><span></span><code>sudo service postgresql restart
 </code></pre></div>
-
 <h3 id="python-redis-gdal">Python, Redis, GDAL<a class="headerlink" href="#python-redis-gdal" title="Permanent link">&para;</a></h3>
 <p>Instale Python y otras dependencias como GDAL y el servidor de Redis.</p>
 <div class="highlight"><pre><span></span><code>sudo apt-get install -y <span class="se">\</span>
@@ -729,31 +724,26 @@ optimizar la base de datos para TimescaleDB.</p>
   python3-pip <span class="se">\</span>
   redis-server
 </code></pre></div>
-
 <h3 id="nginx">Nginx<a class="headerlink" href="#nginx" title="Permanent link">&para;</a></h3>
 <p>Nginx se utiliza para servir tanto el backend (API y administrador) como el
 frontend (sitio web de la plataforma).</p>
 <p>Instale Nginx desde los repositorios de Ubuntu:</p>
 <div class="highlight"><pre><span></span><code>sudo apt install nginx
 </code></pre></div>
-
 <h2 id="backend">Backend<a class="headerlink" href="#backend" title="Permanent link">&para;</a></h2>
 <h3 id="instalacion">Instalación<a class="headerlink" href="#instalacion" title="Permanent link">&para;</a></h3>
 <p>Primero clone el repositorio del backend.</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/undp/satlomas-back.git
 <span class="nb">cd</span> satlomas-back/
 </code></pre></div>
-
 <p>Para instalar las dependencias correctas del backend, debe instalar el
 manejador de paquetes <a href="https://pipenv.pypa.io/en/latest/">Pipenv</a>.</p>
 <div class="highlight"><pre><span></span><code>sudo -H pip3 install -U pipenv
 </code></pre></div>
-
 <p>Luego, ejecute lo siguiente para instalar todas las dependencias necesarias.
 Esto creará un entorno virtual para este proyecto.</p>
 <div class="highlight"><pre><span></span><code>pipenv install
 </code></pre></div>
-
 <p>Una vez que finalize la instalación, estará listo para configurar el backend.</p>
 <h3 id="configuracion">Configuración<a class="headerlink" href="#configuracion" title="Permanent link">&para;</a></h3>
 <h4 id="base-de-datos">Base de datos<a class="headerlink" href="#base-de-datos" title="Permanent link">&para;</a></h4>
@@ -762,11 +752,9 @@ Si sabe que va a ejecutar PostgreSQL con otros usuario, por favor reemplaze
 la variable <code>$USER</code> como corresponde.</p>
 <div class="highlight"><pre><span></span><code>sudo -u postgres createuser -s <span class="nv">$USER</span>
 </code></pre></div>
-
 <p>Cree la base de datos.</p>
 <div class="highlight"><pre><span></span><code>createdb satlomas
 </code></pre></div>
-
 <p>Configure una contraseña para el usuario que acaba de crear. Ejecute el
 siguiente comando <em>reemplazando</em> <code>foobar</code> por una contraseña única:</p>
 <div class="admonition warning">
@@ -775,12 +763,10 @@ siguiente comando <em>reemplazando</em> <code>foobar</code> por una contraseña 
 </div>
 <div class="highlight"><pre><span></span><code>psql satlomas -c <span class="s2">&quot;ALTER USER </span><span class="nv">$USER</span><span class="s2"> WITH PASSWORD &#39;foobar&#39;&quot;</span>
 </code></pre></div>
-
 <p>Agregue las extensiones TimescaleDB y PostGIS a la base de datos creada.</p>
 <div class="highlight"><pre><span></span><code>psql satlomas -c <span class="s2">&quot;CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE&quot;</span>
 psql satlomas -c <span class="s2">&quot;CREATE EXTENSION IF NOT EXISTS postgis CASCADE&quot;</span>
 </code></pre></div>
-
 <h4 id="registracion-en-copernicus-open-access-hub">Registración en Copernicus Open Access Hub<a class="headerlink" href="#registracion-en-copernicus-open-access-hub" title="Permanent link">&para;</a></h4>
 <p>Para que la plataforma pueda descargar los productos del satélite Sentinel-1
 y Sentinel-2 de la ESA, es necesario estar registrado en <a href="https://scihub.copernicus.eu/">Copernicus Open
@@ -796,7 +782,6 @@ Access Hub</a>.</p>
 <p>Copie <code>env.sample</code> y guarde un archivo nuevo llamada <code>.env</code>.</p>
 <div class="highlight"><pre><span></span><code>cp env.sample .env
 </code></pre></div>
-
 <p>Ahora edite <code>.env</code> según sus necesidades. El archivo <code>env.sample</code> es un
 ejemplo con valores por defecto para algunas variables, pero algunas de ellas
 debe completarlas. A continuación se describen las variables que deben ser
@@ -849,17 +834,14 @@ de la base de datos.</p>
 <div class="highlight"><pre><span></span><code>pipenv shell
 ./manage.py migrate   <span class="c1"># Correr las migraciones</span>
 </code></pre></div>
-
 <p>Antes de continuar, debería generar los archivos estáticos, necesarios para el
 panel de administrador:</p>
 <div class="highlight"><pre><span></span><code>./manage.py collectstatic
 </code></pre></div>
-
 <p>Finalmente, cree un <em>superusuario</em> para SatLomas. Este será el primer usuario
 administrador, con el que podrá registrar nuevos administradores o usuarios.</p>
 <div class="highlight"><pre><span></span><code>./manage.py createsuperuser
 </code></pre></div>
-
 <p>Luego de seguir las instrucciones del comando, tendrá un usuario y contraseña
 para ingresar al administrador del backend.</p>
 <h2 id="frontend">Frontend<a class="headerlink" href="#frontend" title="Permanent link">&para;</a></h2>
@@ -868,21 +850,17 @@ para ingresar al administrador del backend.</p>
 <div class="highlight"><pre><span></span><code>curl -sL https://deb.nodesource.com/setup_12.x <span class="p">|</span> sudo -E bash -
 sudo apt-get install -y nodejs
 </code></pre></div>
-
 <p>Luego, clone el repositorio del frontend:</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/undp/satlomas-front.git
 <span class="nb">cd</span> satlomas-front/
 </code></pre></div>
-
 <p>Instale todas las dependencias con <code>npm</code>:</p>
 <div class="highlight"><pre><span></span><code>npm install
 </code></pre></div>
-
 <p>Finalmente, ejecute el siguiente comando para generar un <em>build</em> del sitio
 web:</p>
 <div class="highlight"><pre><span></span><code>npm run build
 </code></pre></div>
-
 <h2 id="configuracion-de-servicios">Configuración de servicios<a class="headerlink" href="#configuracion-de-servicios" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">Más información</p>
@@ -895,7 +873,6 @@ consultarla.</p>
 <p>Comience creando un nuevo archivo para el socket del servicio del backend:</p>
 <div class="highlight"><pre><span></span><code>sudo nano /etc/systemd/system/gunicorn.socket
 </code></pre></div>
-
 <p>Copie lo siguiente dentro del archivo:</p>
 <div class="highlight"><pre><span></span><code>[Unit]
 Description=gunicorn socket
@@ -906,20 +883,17 @@ ListenStream=/run/gunicorn.sock
 [Install]
 WantedBy=sockets.target
 </code></pre></div>
-
 <p>Guarde y ciérrelo.</p>
 <p>Para el siguiente paso es necesario que verifique la ruta del entorno virtual
 del backend. Desde el directorio del código del backend, ejecute el siguiente
 comando:</p>
 <div class="highlight"><pre><span></span><code>pipenv --venv
 </code></pre></div>
-
 <p>Tome nota de la ruta que devuelve el comando.</p>
 <p>Ahora, cree un nuevo archivo para el servicio. El nombre de archivo del
 servicio debería coincidir con el del socket, a excepción de la extensión:</p>
 <div class="highlight"><pre><span></span><code>sudo nano /etc/systemd/system/gunicorn.service
 </code></pre></div>
-
 <p>Copie el siguiente contenido:</p>
 <div class="highlight"><pre><span></span><code>[Unit]
 Description=gunicorn daemon
@@ -935,12 +909,11 @@ ExecStart=/home/ubuntu/.local/share/virtualenvs/satlomas-back-XVGhZdP0/bin/gunic
           --timeout 600 \
           --workers 3 \
           --bind unix:/run/gunicorn.sock \
-          geolomas.wsgi:application
+          satlomas.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
 </code></pre></div>
-
 <p>Ajuste <code>WorkingDirectory</code> a la ruta <em>absoluta</em> del repositorio clonado del
 backend. Luego, ajuste la ruta absoluta de <code>ExecStart</code> a la del entorno
 virtual de Pipenv, agregando al final <code>/bin/gunicorn</code>. También será necesario
@@ -955,14 +928,12 @@ conexión al socket, systemd automaticamente inicia el servicio
 <div class="highlight"><pre><span></span><code>sudo systemctl start gunicorn.socket
 sudo systemctl <span class="nb">enable</span> gunicorn.socket
 </code></pre></div>
-
 <h3 id="frontend_1">Frontend<a class="headerlink" href="#frontend_1" title="Permanent link">&para;</a></h3>
 <p>De manera similar, para el servidor web del frontend será administrador por
 systemd.</p>
 <p>Cree un nuevo archivo para el servicio del frontend:</p>
 <div class="highlight"><pre><span></span><code>sudo nano /etc/systemd/system/satlomas-front.service
 </code></pre></div>
-
 <p>y copie el siguiente contenido:</p>
 <div class="highlight"><pre><span></span><code>[Unit]
 Description=Platform frontend next.js app
@@ -978,7 +949,6 @@ ExecStart=/usr/bin/node server.js
 [Install]
 WantedBy=multi-user.target
 </code></pre></div>
-
 <p>Ajuste <code>WorkingDirectory</code> a la ruta <em>absoluta</em> del repositorio clonado del
 frontend. También será necesario que defina el <code>User</code> y <code>Group</code> con el que se
 ejecutará el proceso. Este usuario debería tener permisos para poder acceder
@@ -987,7 +957,6 @@ al repositorio del backend.</p>
 <div class="highlight"><pre><span></span><code>sudo systemctl start satlomas-front.service
 sudo systemctl <span class="nb">enable</span> satlomas-front.service
 </code></pre></div>
-
 <h3 id="nginx_1">Nginx<a class="headerlink" href="#nginx_1" title="Permanent link">&para;</a></h3>
 <p>A modo ejemplo, se presentan dos archivos de configuración para Nginx, para
 servir el backend y frontend respectivamente.</p>
@@ -1000,7 +969,6 @@ y dos registros A para los subdominios:</p>
 <p>Cree un nuevo archivo <code>/etc/nginx/sites-available/satlomas-back</code></p>
 <div class="highlight"><pre><span></span><code>sudo nano /etc/nginx/sites-available/satlomas-back
 </code></pre></div>
-
 <p>y copie dentro de éste el siguiente contenido:</p>
 <div class="highlight"><pre><span></span><code>server {
   server_name api.satlomas.com;
@@ -1021,14 +989,12 @@ y dos registros A para los subdominios:</p>
   }
 }
 </code></pre></div>
-
 <p>Ajuste <code>server_name</code> al subdominio que corresponda al backend, y <code>root</code> a la
 ruta absoluta del repositorio del backend (en este caso, el repositorio fue
 clonado dentro del directorio <em>home</em> del usuario <code>ubuntu</code>).</p>
 <p>Luego cree otro archivo <code>/etc/nginx/sites-available/satlomas-front</code></p>
 <div class="highlight"><pre><span></span><code>sudo nano /etc/nginx/sites-available/satlomas-front
 </code></pre></div>
-
 <p>y copie lo siguiente:</p>
 <div class="highlight"><pre><span></span><code>server {
     server_name app.satlomas.com;
@@ -1057,7 +1023,6 @@ clonado dentro del directorio <em>home</em> del usuario <code>ubuntu</code>).</p
     }
 }
 </code></pre></div>
-
 <p>Nuevamente, ajuste <code>server_name</code> al subdominio correspndiente para el
 frontend, y las ocurrencias de <code>/home/ubuntu/satlomas-front</code> a la ruta
 absoluta del repositorio del frontend.</p>
@@ -1066,11 +1031,9 @@ absoluta del repositorio del frontend.</p>
 <div class="highlight"><pre><span></span><code>sudo ln -s /etc/nginx/sites-available/satlomas-back /etc/nginx/sites-enabled/
 sudo ln -s /etc/nginx/sites-available/satlomas-front /etc/nginx/sites-enabled/
 </code></pre></div>
-
 <p>y reinicie Nginx:</p>
 <div class="highlight"><pre><span></span><code>sudo systemctl restart nginx
 </code></pre></div>
-
 <p>Con esto concluye la implementación de la plataforma. Podrá acceder al
 backend desde <code>http://api.satlomas.com/</code>, y al frontend desde
 <code>http://app.satlomas.com/</code> (suponiendo que configuró los sitios con esos
@@ -1092,17 +1055,14 @@ sudo add-apt-repository -y universe
 sudo add-apt-repository -y ppa:certbot/certbot
 sudo apt-get update
 </code></pre></div>
-
 <p>Ejecute este comando para instalar Certbot:</p>
 <div class="highlight"><pre><span></span><code>sudo apt-get install -y certbot python3-certbot-nginx
 </code></pre></div>
-
 <p>Ahora ejecute este comando para obtener un certificado y hacer que Certbot
 edite los archivos de configuración de Nginx de los sitios habilitados
 automáticamente.</p>
 <div class="highlight"><pre><span></span><code>sudo certbot --nginx
 </code></pre></div>
-
 <p>El certificado se debería actualizar automaticamente a través del servicio de
 Certbot.</p>
                 
